@@ -112,38 +112,38 @@ export default function App() {
         }
     }
     const btnArr = btnNum.map(btn => {
-        return (<Btn position={btn.position} key={nanoid()} onClick={typeof(btn.num)==="number"?!state?(() => setFirstNum(firstNum?`${firstNum}${btn.num}`:`${btn.num}`)):(() => setSecondNum(secondNum?`${secondNum}${btn.num}`:`${btn.num}`)):state?(() => {
+        return (<Btn position={btn.position} key={nanoid()} onClick={typeof(btn.num)==="number"?!state?() => setFirstNum(firstNum?`${firstNum}${btn.num}`:`${btn.num}`):() => setSecondNum(secondNum?`${secondNum}${btn.num}`:`${btn.num}`):state?() => {
             btn.num==="+"?sum?(() => {
                 setState(btn.num)
-                getSum(sum, secondNum)()}):(() => {
+                getSum(sum, secondNum)})():(() => {
                 setState(btn.num)
-                getSum(firstNum, secondNum)}):null
+                getSum(firstNum, secondNum)})():null
             btn.num==="-"?sum?(() => {
                 setState(btn.num)
                 getSum(sum, secondNum)
-            }):(() => {
+            })():(() => {
                 setState(btn.num)
-                getSum(firstNum, secondNum)}):null
+                getSum(firstNum, secondNum)})():null
             btn.num==="/"?sum?(() => {
                 setState(btn.num)
                 getSum(sum, secondNum)
-            }):(() => {
+            })():(() => {
                 setState(btn.num)
-                getSum(firstNum, secondNum)}):null
+                getSum(firstNum, secondNum)})():null
             btn.num==="x"?sum?(() => {
                 setState(btn.num)
                 getSum(sum, secondNum)
-            }):(() => {
+            })():(() => {
                 setState(btn.num)
-                getSum(firstNum, secondNum)}):null
+                getSum(firstNum, secondNum)})():null
             btn.num==="DEL"?state?setSecondNum():setFirstNum():null
-        }):(() => {
+        }:() => {
             btn.num==="+"?setState(btn.num):null
             btn.num==="-"?setState(btn.num):null
             btn.num==="/"?setState(btn.num):null
             btn.num==="x"?setState(btn.num):null
             btn.num==="DEL"?state?setSecondNum():setFirstNum():null
-        })}>
+        }}>
         {btn.num}
         </Btn>)
     })
@@ -154,16 +154,16 @@ export default function App() {
                 <Div>
                     <Wrapper>
                         <Header one={() => setCurrentTheme(Themes[0])} two={() => setCurrentTheme(Themes[1])} three={() => setCurrentTheme(Themes[2])} currentTheme={currentTheme}/>
-                        <Sum sum={sum?sum:null} currentNum={display}/>
+                        <Sum sum={sum} currentNum={display}/>
                         <Grid>
                             {btnArr}
-                            <Reset onClick={(() => {
+                            <Reset onClick={() => {
                                 setFirstNum()
                                 setSecondNum()
                                 setState()
                                 setSum()
-                            })}>reset</Reset>
-                            <Equal onClick={state?secondNum?(() => {getSum(firstNum, secondNum);setSecondNum()}):(() => getSum(firstNum, firstNum)):null}>=</Equal>
+                            }}>reset</Reset>
+                            <Equal onClick={state?secondNum?() => {getSum(firstNum, secondNum);setSecondNum()}:() => getSum(firstNum, firstNum):null}>=</Equal>
                         </Grid>
                     </Wrapper>
                 </Div>
