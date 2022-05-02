@@ -8,11 +8,15 @@ import styled from "styled-components"
     justify-content: space-between;
     border-radius: 10px;
     background: ${props => props.theme.screen};
-    padding: 1em;
     `
     const Total = styled.h1`
-    color: ${props => props.theme.text};
+    color: ${props => props.theme.keytext==="hsl(221, 14%, 31%)"?props.theme.text:props.theme.keytext};
+    padding: 0.5em;
     margin: 0;
+    @media (max-width: 500px) {
+        margin: 0.5em;
+        padding: 0;
+    }
     `
     const Current = styled(Total)`
     ` 

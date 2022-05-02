@@ -23,7 +23,7 @@ export const Themes = [
         keynumbg: "hsl(45, 7%, 89%)",
         keynumshadow: "hsl(35, 11%, 61%)",
         keytext: "hsl(60, 10%, 19%)",
-        text: "black"
+        text: "white"
     },
     {
         main: "hsl(268, 75%, 9%)",

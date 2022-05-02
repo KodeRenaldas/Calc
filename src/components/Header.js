@@ -7,7 +7,7 @@ import styled from "styled-components"
     width: 100%;
     `
     const HeaderText = styled.h2`
-    color: ${props => props.theme.text};
+    color: ${props => props.theme.keytext==="hsl(221, 14%, 31%)"?props.theme.text:props.theme.keytext};
     margin: 0;
     `
     const Theme = styled.div`
@@ -15,7 +15,7 @@ import styled from "styled-components"
     `
     const ThemeHeader = styled.div`
     margin: 0 0.25em;
-    color: ${props => props.theme.text};
+    color: ${props => props.theme.keytext==="hsl(221, 14%, 31%)"?props.theme.text:props.theme.keytext};
     align-self: flex-end;
     font-weight: bold;
     `
@@ -27,7 +27,7 @@ import styled from "styled-components"
     `
     const ThemeNumber = styled.p`
     margin: 0;
-    color: ${props => props.theme.text};
+    color: ${props => props.theme.keytext==="hsl(221, 14%, 31%)"?props.theme.text:props.theme.keytext};
     font-size: 1.125rem;
     `
     const ButtonWrapper = styled(ThemeWrapper)`

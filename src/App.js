@@ -7,9 +7,8 @@ import GlobalStyle from "./theme/GlobalStyle"
 import {nanoid} from "nanoid"
 
     const Div = styled.div`
-    min-width: 100vh;
+    min-height: 100vh;
     display: flex;
-    height: 100vh;
     justify-content: center;
     align-items: center;
     background: ${props => props.theme.main};
@@ -19,11 +18,11 @@ import {nanoid} from "nanoid"
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 400px;
-    height: 400px;
+    max-width: 400px;
     `
     const Grid = styled.div`
     display: grid;
+    border-radius: 10px;
     grid-template-rows: auto;
     padding: 1em;
     grid-template-areas:
@@ -81,7 +80,7 @@ export default function App() {
     const [display, setDisplay] = useState()
     useEffect(() => {
         state?setDisplay(secondNum):setDisplay(firstNum)
-    }, [firstNum, secondNum])
+    }, [firstNum, secondNum, state])
     const btnNum = [
         {num: 1, position:"one"},
         {num: 2, position:"two"},
